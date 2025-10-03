@@ -15,17 +15,18 @@ The implementation includes gradient descent optimization, prediction, error cal
 ------------------------------------------------------------
 
 ## Project Structure
-.
+///
 ├── linear_regression_scratch.ipynb   # Jupyter Notebook implementation
 ├── README.md                         # Project documentation
-
+///
 ------------------------------------------------------------
 
 ## Installation
 
 Clone the repository and install dependencies:
 
-$ git clone https://github.com/ashbeexd/linear-regression.git
+$ git clone https://github.com/AshBeeXD/Linear-Regression-Scratch.git
+
 $ cd Linear-Regression
 
 Dependencies:
@@ -39,7 +40,7 @@ Dependencies:
 
 Run the notebook:
 
-$ jupyter notebook Linear_Regression.ipynb
+$ jupyter notebook Linear-Regression.ipynb
 
 ------------------------------------------------------------
 
@@ -47,7 +48,9 @@ $ jupyter notebook Linear_Regression.ipynb
 
 We generate synthetic data:
     y = 2x + 3 + ε
+
 where ε is Gaussian noise.  
+
 The model learns parameters close to weight ≈ 2 and bias ≈ 3.
 
 Python example:
@@ -64,8 +67,11 @@ Python example:
 >>> print("MSE:", model.mse(y, predictions))
 
 Sample Output:
+    
     Learned weights: [1.9999382]
+    
     Learned bias: 3.178489968762191
+    
     MSE: 0.8454541970903011
 
 ------------------------------------------------------------
