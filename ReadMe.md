@@ -15,19 +15,21 @@ The implementation includes gradient descent optimization, prediction, error cal
 ------------------------------------------------------------
 
 ## Project Structure
-///
+```
+
 ├── linear_regression_scratch.ipynb   # Jupyter Notebook implementation
 ├── README.md                         # Project documentation
-///
+
+```
 ------------------------------------------------------------
 
 ## Installation
 
 Clone the repository and install dependencies:
 
-$ git clone https://github.com/AshBeeXD/Linear-Regression-Scratch.git
+	$ git clone https://github.com/AshBeeXD/Linear-Regression-Scratch.git
 
-$ cd Linear-Regression
+	$ cd Linear-Regression
 
 Dependencies:
 - numpy
@@ -40,7 +42,7 @@ Dependencies:
 
 Run the notebook:
 
-$ jupyter notebook Linear-Regression.ipynb
+	$ jupyter notebook Linear-Regression.ipynb
 
 ------------------------------------------------------------
 
