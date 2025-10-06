@@ -27,7 +27,7 @@ It uses the **California Housing** dataset and benchmarks performance against sc
     │   ├── metrics.py         # Custom MSE, MAE, R²
     │   └── plotting.py        # Convergence, coefficients, residuals
     ├── notebooks/
-    │   └── Linear_Regression_Scr.ced.ipynb
+    │   └── Linear_Regressionatch.ced.ipynb
     ├── requirements.txt
     └── README.md
 
