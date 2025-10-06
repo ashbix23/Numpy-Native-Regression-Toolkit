@@ -17,7 +17,6 @@ It uses the **California Housing** dataset and benchmarks performance against sc
 - **Baselines:** scikit-learn `LinearRegression` and `Ridge` on the same data
 
 ---
-
 ## Project Structure
 
     Linear-Regression-Scratch/
@@ -26,9 +25,16 @@ It uses the **California Housing** dataset and benchmarks performance against sc
     │   ├── model.py           # NumPy implementation (GD + L2 + early stopping)
     │   ├── metrics.py         # Custom MSE, MAE, R²
     │   └── plotting.py        # Convergence, coefficients, residuals
+    │
     ├── notebooks/
-    │   └ Linear_Regression_Scratch.ipynb
+    │   ├── Linear_Regression_Scratch.ipynb   # Full workflow notebook
+    │   └── images/                           # Visual outputs and plots
+    │       ├── feature_importance.png        # Coefficient magnitudes
+    │       ├── residuals.png                 # Residuals distribution
+    │       └── predicted_vs_actual.png       # True vs predicted scatter
+    │
     ├── requirements.txt
+    ├── LICENSE
     └── README.md
 
 ---
@@ -76,6 +82,16 @@ Then execute all cells in order to:
 
 ---
 
+## Model Interpretation
+
+Below is an example visualization of **feature importance** learned by the custom linear regression model.  
+It shows how strongly each input variable contributes to predicting house values in the California Housing dataset.
+
+![Feature Importance](notebooks/images/feature_importance.png)
+
+> The model indicates that **median income (`MedInc`)** is by far the most influential predictor, followed by **house age** and **average rooms**.
+
+---
 ## Key Learnings
 
 - **Standardization** greatly stabilizes and accelerates gradient descent  
