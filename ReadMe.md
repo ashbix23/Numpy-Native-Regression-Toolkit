@@ -1,111 +1,100 @@
-# Linear Regression from Scratch
+# Linear Regression from Scratch (Enhanced)
 
-This project demonstrates how to implement **Linear Regression** completely from scratch using only **NumPy** (no scikit-learn).  
-The implementation includes gradient descent optimization, prediction, error calculation, and visualization.
+This project implements **multiple linear regression** entirely from scratch using **NumPy**, with **Ridge (L2) regularization**, **early stopping**, and thorough **evaluation and visualization**.  
+It uses the **California Housing** dataset and benchmarks performance against scikit-learn’s `LinearRegression` and `Ridge`.
 
-------------------------------------------------------------
+---
 
 ## Features
-- Initializes weights and bias
-- Fits the model using **gradient descent**
-- Makes predictions on new data
-- Calculates **Mean Squared Error (MSE)**
-- Visualizes the best-fit line against raw data
 
-------------------------------------------------------------
+- **Batch Gradient Descent** with configurable learning rate and epochs  
+- **Multiple features** (true multivariate regression)  
+- **Ridge (L2) Regularization** to improve generalization  
+- **Early Stopping** using a validation set (`tol`, `patience`)  
+- Proper **Train/Validation/Test split** and **Standardization**  
+- **Metrics:** MSE, MAE, R² on train/test  
+- **Visualizations:** convergence curve, coefficient bar chart, residuals plot  
+- **Baselines:** scikit-learn `LinearRegression` and `Ridge` on the same data
+
+---
 
 ## Project Structure
-```
 
-├── linear_regression_scratch.ipynb   # Jupyter Notebook implementation
-├── README.md                         # Project documentation
+    Linear-Regression-Scratch/
+    ├── linear_scratch/
+    │   ├── __init__.py
+    │   ├── model.py           # NumPy implementation (GD + L2 + early stopping)
+    │   ├── metrics.py         # Custom MSE, MAE, R²
+    │   └── plotting.py        # Convergence, coefficients, residuals
+    ├── notebooks/
+    │   └── Linear_Regression_Scratch_Enhanced.ipynb
+    ├── requirements.txt
+    └── README.md
 
-```
-------------------------------------------------------------
+---
 
 ## Installation
 
-Clone the repository and install dependencies:
+    # Clone this repository
+    git clone https://github.com/AshBeeXD/Linear-Regression-Scratch.git
+    cd Linear-Regression-Scratch
 
-	$ git clone https://github.com/AshBeeXD/Linear-Regression-Scratch.git
+    # (Optional) Create and activate a virtual environment
+    python -m venv .venv
+    # macOS/Linux:
+    source .venv/bin/activate
+    # Windows (PowerShell):
+    .venv\Scripts\Activate.ps1
 
-	$ cd Linear-Regression
+    # Install dependencies
+    pip install -r requirements.txt
 
-Dependencies:
-- numpy
-- matplotlib
-- jupyter (if running notebook)
-
-------------------------------------------------------------
+---
 
 ## Usage
 
-Run the notebook:
+    # Open the notebook
+    jupyter notebook notebooks/Linear_Regression_Scratch_Enhanced.ipynb
 
-	$ jupyter notebook Linear-Regression.ipynb
+Then execute all cells in order to:
+1. Load and preprocess the dataset  
+2. Train the custom Linear Regression model (NumPy)  
+3. Visualize convergence and interpret coefficients  
+4. Compare against scikit-learn baselines
 
-------------------------------------------------------------
+---
 
-## Example
+## Example Results
 
-We generate synthetic data:
-    y = 2x + 3 + ε
+| Metric | Train (Scratch) | Test (Scratch) | Train (SK Ridge) | Test (SK Ridge) |
+|:------:|:----------------:|:--------------:|:----------------:|:---------------:|
+|   MSE  |       0.53       |      0.56      |       0.53       |       0.56      |
+|   MAE  |       0.56       |      0.59      |       0.56       |       0.59      |
+|   R²   |       0.60       |      0.57      |       0.60       |       0.57      |
 
-where ε is Gaussian noise.  
+*Values will vary slightly by seed and split. Typical R² on this setup is ~0.55–0.60.*
 
-The model learns parameters close to weight ≈ 2 and bias ≈ 3.
-
-Python example:
-
->>> X = np.linspace(0, 10, 100).reshape(-1, 1)
->>> y = 2 * X.flatten() + 3 + np.random.randn(100)
->>> 
->>> model = LinearRegressionScratch(learning_rate=0.01, n_iters=1000)
->>> model.fit(X, y)
->>> predictions = model.predict(X)
->>> 
->>> print("Learned weights:", model.weight)
->>> print("Learned bias:", model.bias)
->>> print("MSE:", model.mse(y, predictions))
-
-Sample Output:
-    
-    Learned weights: [1.9999382]
-    
-    Learned bias: 3.178489968762191
-    
-    MSE: 0.8454541970903011
-
-------------------------------------------------------------
-
-## Visualization
-
-The notebook plots the raw data points (blue) and the best fit line (red):
-
->>> plt.scatter(X, y, color="blue", label="Data")
->>> plt.plot(X, predictions, color="red", label="Best Fit Line")
->>> plt.legend()
->>> plt.show()
-
-Result:
-- Blue = raw data
-- Red = best fit line
-
-------------------------------------------------------------
+---
 
 ## Key Learnings
-- How gradient descent works in linear regression
-- Implementing ML algorithms from scratch without libraries
-- Importance of learning rate and number of iterations
 
-------------------------------------------------------------
+- **Standardization** greatly stabilizes and accelerates gradient descent  
+- **Ridge** reduces overfitting by shrinking coefficients toward zero  
+- **Early stopping** halts training when validation loss plateaus  
+- Building models from scratch deepens understanding of optimization and bias–variance
 
-## Future Improvements
-- Add support for polynomial regression
-- Implement stochastic gradient descent (SGD)
-- Compare results with scikit-learn’s LinearRegression
+---
 
-------------------------------------------------------------
+## Extensions
+
+- Add features (e.g., `AveBedrms`, `Population`, `AveOccup`) and re-tune hyperparameters  
+- Implement **L1 (Lasso)** or **Elastic Net**  
+- Try **SGD**, momentum, or learning-rate schedules  
+- Use **k-fold cross-validation** for robust evaluation  
+- Add a small **hyperparameter sweep** for `lambda_reg` and learning rate
+
+---
 
 ## License
-This project is licensed under the MIT License.
+
+This project is released under the **MIT License** (see `LICENSE`).
