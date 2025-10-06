@@ -1,6 +1,6 @@
-# Linear Regression from Scratch (Enhanced)
+# Linear Regression from Scratch
 
-This project implements **multiple linear regression** entirely from scratch using **NumPy**, with **Ridge (L2) regularization**, **early stopping**, and thorough **evaluation and visualization**.  
+This project implements **multivariate linear regression** entirely from scratch using **NumPy**, with **Ridge (L2) regularization**, **early stopping**, and thorough **evaluation and visualization**.  
 It uses the **California Housing** dataset and benchmarks performance against scikit-learn’s `LinearRegression` and `Ridge`.
 
 ---
@@ -27,7 +27,7 @@ It uses the **California Housing** dataset and benchmarks performance against sc
     │   ├── metrics.py         # Custom MSE, MAE, R²
     │   └── plotting.py        # Convergence, coefficients, residuals
     ├── notebooks/
-    │   └── Linear_Regression_Scratch_Enhanced.ipynb
+    │   └── Linear_Regression_Scr.ced.ipynb
     ├── requirements.txt
     └── README.md
 
@@ -54,7 +54,7 @@ It uses the **California Housing** dataset and benchmarks performance against sc
 ## Usage
 
     # Open the notebook
-    jupyter notebook notebooks/Linear_Regression_Scratch_Enhanced.ipynb
+    jupyter notebook notebooks/Linear_Regression_Scratch.ipynb
 
 Then execute all cells in order to:
 1. Load and preprocess the dataset  
@@ -66,13 +66,13 @@ Then execute all cells in order to:
 
 ## Example Results
 
-| Metric | Train (Scratch) | Test (Scratch) | Train (SK Ridge) | Test (SK Ridge) |
-|:------:|:----------------:|:--------------:|:----------------:|:---------------:|
-|   MSE  |       0.53       |      0.56      |       0.53       |       0.56      |
-|   MAE  |       0.56       |      0.59      |       0.56       |       0.59      |
-|   R²   |       0.60       |      0.57      |       0.60       |       0.57      |
+| Metric | Train (Scratch) | Test (Scratch) | Train (SK Linear) | Test (SK Linear) | Train (SK Ridge) | Test (SK Ridge) |
+|:-------|:----------------|:---------------|:------------------|:-----------------|:-----------------|:----------------|
+| MSE    |      0.6534     |     0.6625     |       0.6474      |      0.6589      |      0.6474      |      0.6589     |
+| MAE    |      0.6070     |     0.6112     |       0.5987      |      0.6033      |      0.5987      |      0.6033     |
+| R²     |      0.5112     |     0.4945     |       0.5157      |      0.4972      |      0.5157      |      0.4972     |
 
-*Values will vary slightly by seed and split. Typical R² on this setup is ~0.55–0.60.*
+*Values will vary slightly by seed and split. Typical R² on this setup is ~0.50*
 
 ---
 
