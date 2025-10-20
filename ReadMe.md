@@ -1,7 +1,4 @@
-# Linear Regression from Scratch  
-
-![Predicted vs Actual](notebooks/images/predicted_vs_actual.png)
-
+# Numpy-Native Regression Toolkit  
 ---
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)  
@@ -12,10 +9,9 @@
 ---
 
 ## Overview
-This project builds **Multivariate Linear Regression from scratch** using only **NumPy**, implementing modern enhancements such as **Ridge (L2) Regularization**, **Early Stopping**, and **visual diagnostics**. It benchmarks performance against scikit-learn's `LinearRegression` and `Ridge`, using the **California Housing** dataset.
+This repository provides a **rigorous, modular implementation** of Multivariate Linear Regression, specifically incorporating **Ridge (L2) Regularization** and **Adaptive Early Stopping**. The entire core model is built *from scratch* using only the **NumPy** library, bypassing high-level ML frameworks.
 
-The purpose: to deeply understand the mechanics of gradient descent, regularization, and model evaluation — not just use libraries, but *build the fundamentals yourself*.
-
+The project is designed to demonstrate **deep algorithmic mastery** and core **ML Engineering fundamentals**. It functions as an extensible first-principles ML module and is validated through a comprehensive evaluation and benchmarking suite.
 
 ---
 
@@ -372,6 +368,35 @@ plot_model_insights(model, X_test, y_test, feature_names=feature_names)
 | No improvement in validation | Over-regularization | Reduce `lambda_reg` |
 | NaN or inf values | Data not standardized | Use `StandardScaler` before training |
 
+
+---
+
+## ⏭️ Future Work and Technical Roadmap
+
+This section outlines planned enhancements to expand the toolkit's functionality, robustness, and performance, ensuring the project remains a cutting-edge demonstration of core ML engineering and algorithmic mastery.
+
+### 1. Algorithmic Extensions (Deepening Mastery)
+
+| Feature | Technical Goal |
+| :--- | :--- |
+| **Implement Mini-Batch Gradient Descent (MBGD)** | Refactor the optimizer to utilize data in small batches, improving training speed and resource utilization on larger datasets. |
+| **Add L1 (Lasso) Regularization** | Introduce the L1 penalty term, requiring a solution using sub-gradients (e.g., ISTA) or coordinate descent. |
+| **Polynomial Feature Generator** | Implement a feature engineering utility to generate polynomial and interaction terms, allowing the model to capture non-linear relationships. |
+
+### 2. Robustness and Software Engineering
+
+| Feature | Technical Goal |
+| :--- | :--- |
+| **CI/CD Integration (GitHub Actions)** | Establish an automated workflow to run unit tests and linting (`flake8` / `black`) on every commit or PR.|
+| **Hyperparameter Tuning Utility** | Build a custom Grid Search utility to automate the process of finding the optimal learning rate ($\alpha$) and regularization strength ($\lambda$). |
+| **Comprehensive Unit Testing** | Increase test coverage to $90\%+$ across all modules, focusing on mathematical edge cases and component integration. |
+
+### 3. Performance and Scalability
+
+| Feature | Technical Goal | 
+| :--- | :--- |
+| **JIT Compilation with Numba** | Integrate the Numba library to Just-In-Time (JIT) compile the core gradient and prediction loops. |
+| **Detailed Profiling and Benchmarking** | Use Python's `cProfile` module to identify specific bottlenecks and document the performance gains achieved through vectorization. |
 
 ---
 
